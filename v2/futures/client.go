@@ -346,7 +346,7 @@ func (c *Client) callAPI(ctx context.Context, r *request, opts ...RequestOption)
 	}
 	defer func() {
 		cerr := res.Body.Close()
-		// Only overwrite the retured error if the original error was nil and an
+		// Only overwrite the returned error if the original error was nil and an
 		// error occurred while closing the body.
 		if err == nil && cerr != nil {
 			err = cerr
@@ -556,11 +556,6 @@ func (c *Client) NewFundingRateService() *FundingRateService {
 	return &FundingRateService{c: c}
 }
 
-// NewFundingRateHistoryService init funding rate history service
-func (c *Client) NewFundingRateHistoryService() *FundingRateHistoryService {
-	return &FundingRateHistoryService{c: c}
-}
-
 // NewFundingRateInfoService init funding rate info service
 func (c *Client) NewFundingRateInfoService() *FundingRateInfoService {
 	return &FundingRateInfoService{c: c}
@@ -639,4 +634,40 @@ func (c *Client) NewOpenInterestStatisticsService() *OpenInterestStatisticsServi
 // NewLongShortRatioService init open interest statistics service
 func (c *Client) NewLongShortRatioService() *LongShortRatioService {
 	return &LongShortRatioService{c: c}
+}
+
+func (c *Client) NewDeliveryPriceService() *DeliveryPriceService {
+	return &DeliveryPriceService{c: c}
+}
+
+func (c *Client) NewTopLongShortAccountRatioService() *TopLongShortAccountRatioService {
+	return &TopLongShortAccountRatioService{c: c}
+}
+
+func (c *Client) NewTopLongShortPositionRatioService() *TopLongShortPositionRatioService {
+	return &TopLongShortPositionRatioService{c: c}
+}
+
+func (c *Client) NewTakerLongShortRatioService() *TakerLongShortRatioService {
+	return &TakerLongShortRatioService{c: c}
+}
+
+func (c *Client) NewBasisService() *BasisService {
+	return &BasisService{c: c}
+}
+
+func (c *Client) NewIndexInfoService() *IndexInfoService {
+	return &IndexInfoService{c: c}
+}
+
+func (c *Client) NewAssetIndexService() *AssetIndexService {
+	return &AssetIndexService{c: c}
+}
+
+func (c *Client) NewConstituentsService() *ConstituentsService {
+	return &ConstituentsService{c: c}
+}
+
+func (c *Client) NewLvtKlinesService() *LvtKlinesService {
+	return &LvtKlinesService{c: c}
 }
